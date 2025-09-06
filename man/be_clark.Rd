@@ -4,8 +4,14 @@
 \alias{be_clark}
 \title{be_clark}
 \usage{
-be_clark(dat, dep = "wl", ind = "baro", lag_space = 1,
-  inverse = TRUE, return_model = FALSE)
+be_clark(
+  dat,
+  dep = "wl",
+  ind = "baro",
+  lag_space = 1,
+  inverse = TRUE,
+  return_model = FALSE
+)
 }
 \arguments{
 \item{dat}{data that has the independent and dependent variables (data.table)}

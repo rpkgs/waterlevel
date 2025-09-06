@@ -4,8 +4,13 @@
 \alias{be_least_squares}
 \title{be_least_squares}
 \usage{
-be_least_squares(dat, dep = "wl", ind = "baro", inverse = TRUE,
-  return_model = FALSE)
+be_least_squares(
+  dat,
+  dep = "wl",
+  ind = "baro",
+  inverse = TRUE,
+  return_model = FALSE
+)
 }
 \arguments{
 \item{dat}{data that has the independent and dependent variables (data.table)}

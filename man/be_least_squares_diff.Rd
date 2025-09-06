@@ -4,8 +4,14 @@
 \alias{be_least_squares_diff}
 \title{be_least_squares_diff}
 \usage{
-be_least_squares_diff(dat, dep = "wl", ind = "baro", lag_space = 1,
-  inverse = TRUE, return_model = FALSE)
+be_least_squares_diff(
+  dat,
+  dep = "wl",
+  ind = "baro",
+  lag_space = 1,
+  inverse = TRUE,
+  return_model = FALSE
+)
 }
 \arguments{
 \item{dat}{data that has the independent and dependent variables (data.table)}

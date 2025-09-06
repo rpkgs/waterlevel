@@ -4,8 +4,13 @@
 \alias{lag_difference}
 \title{lag_difference}
 \usage{
-lag_difference(dat, var_name = "wl", lag_space = 1, inverse = FALSE,
-  remove_na = TRUE)
+lag_difference(
+  dat,
+  var_name = "wl",
+  lag_space = 1,
+  inverse = FALSE,
+  remove_na = TRUE
+)
 }
 \arguments{
 \item{dat}{data that has the independent and dependent variables (data.table)}

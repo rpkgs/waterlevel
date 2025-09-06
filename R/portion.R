@@ -39,7 +39,7 @@ portion <- function(object, ...) {
   if (is_empty(terms))
     terms <- quos(everything())
   
-  keepers <- terms_select(terms = terms, info = object$term_info)
+  keepers <- recipes_eval_select(terms = terms, info = object$term_info)
   
   new_data <- object$template[, names(object$template) %in% keepers]
   

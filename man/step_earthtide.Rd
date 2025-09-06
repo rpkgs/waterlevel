@@ -4,13 +4,31 @@
 \alias{step_earthtide}
 \title{Lagged Earth tide response}
 \usage{
-step_earthtide(recipe, ..., role = "earthtide", trained = FALSE,
-  method = "gravity", astro_update = 1L, latitude = 0,
-  longitude = 0, elevation = 0, azimuth = 0, gravity = 0,
-  earth_radius = 6378136.3, earth_eccen = 0.0066943979514,
-  cutoff = 1e-06, wave_groups = NULL, catalog = "ksm04",
-  eop = NULL, scale = TRUE, prefix = "earthtide_", default = NA,
-  columns = NULL, skip = FALSE, id = rand_id("earthtide"))
+step_earthtide(
+  recipe,
+  ...,
+  role = "earthtide",
+  trained = FALSE,
+  method = "gravity",
+  astro_update = 1L,
+  latitude = 0,
+  longitude = 0,
+  elevation = 0,
+  azimuth = 0,
+  gravity = 0,
+  earth_radius = 6378136.3,
+  earth_eccen = 0.0066943979514,
+  cutoff = 1e-06,
+  wave_groups = NULL,
+  catalog = "ksm04",
+  eop = NULL,
+  scale = TRUE,
+  prefix = "earthtide_",
+  default = NA,
+  columns = NULL,
+  skip = FALSE,
+  id = rand_id("earthtide")
+)
 }
 \arguments{
 \item{recipe}{A recipe object. The step will be added to the sequence of
@@ -23,22 +41,19 @@ currently used.}
 
 \item{role}{Defaults to "earthtide"}
 
-\item{trained}{A logical to indicate if the quantities for preprocessing
-have been estimated.}
+\item{trained}{A logical to indicate if the quantities for preprocessing have
+been estimated.}
 
-\item{method}{One or more of "gravity", 
-"tidal_potential", "tidal_tilt", "vertical_displacement", 
+\item{method}{One or more of "gravity",
+"tidal_potential", "tidal_tilt", "vertical_displacement",
 "horizontal_displacement", "n_s_displacement", "e_w_displacement",
 "vertical_strain", "areal_strain", "volume_strain", "horizontal_strain",
-or "ocean_tides", "pole_tide", "lod_tide". The pole tide and lod_tide 
+or "ocean_tides", "pole_tide", "lod_tide". The pole tide and lod_tide
 are used in predict mode even if do_predict is FALSE. More than one value
 can only be used if do_predict == TRUE.}
 
-\item{astro_update}{Integer that
-determines how often to phases are updated in number of samples. Defaults
-to 1 (every sample), but speed gains are realized with larger values.
-Typically updating every hour will have speed gains and keep precision 
-(ie 3600 for one second data, 60 for minute data, 1 for hourly data).}
+\item{astro_update}{How often to update astro parameters in number of
+samples. This speeds up code but may make it slightly less accurate.}
 
 \item{latitude}{The station latitude (numeric) defaults to 0.}
 
@@ -48,27 +63,27 @@ Typically updating every hour will have speed gains and keep precision
 
 \item{azimuth}{Earth azimuth (numeric) defaults to 0.}
 
-\item{gravity}{Gravity at the station (m/s^2) (numeric) 0 to 
+\item{gravity}{Gravity at the station (m/s^2) (numeric) 0 to
 estimate gravity from elevation and latitude.}
 
 \item{earth_radius}{Radius of earth (m) (numeric) defaults to 6378136.3}
 
-\item{earth_eccen}{Eccentricity of earth (numeric) 
+\item{earth_eccen}{Eccentricity of earth (numeric)
 defaults to 6.69439795140e-3}
 
-\item{cutoff}{Cutoff amplitude for constituents (numeric) 
+\item{cutoff}{Cutoff amplitude for constituents (numeric)
 defaults to 1e-6.}
 
-\item{wave_groups}{Two column data.frame having start and end of 
+\item{wave_groups}{Two column data.frame having start and end of
 frequency groups (data.frame). This data.frame must have two columns
-with the names 'start', and 'end' signifying the start and end of the 
-wave groupings.  An optional third column 'multiplier' can be provided 
+with the names 'start', and 'end' signifying the start and end of the
+wave groupings.  An optional third column 'multiplier' can be provided
 to scale the particular wave group.  If column names do no match, the
 inferred column positions are start, end, multiplier.}
 
 \item{catalog}{Use the "hw95s" catalog or "ksm04" catalog (character).}
 
-\item{eop}{User defined Earth Orientation Parameter (EOP) data.frame with the 
+\item{eop}{User defined Earth Orientation Parameter (EOP) data.frame with the
 following columns: datetime, ddt, ut1_utc, lod, x, y, dx, dy}
 
 \item{scale}{Scale results when do_predict is FALSE}
@@ -76,18 +91,17 @@ following columns: datetime, ddt, ut1_utc, lod, x, y, dx, dy}
 \item{prefix}{A prefix for generated column names, default to 
 "earthtide_".}
 
-\item{default}{Passed to \code{dplyr::lag}, determines what fills empty rows
+\item{default}{Passed to \code{\link[dplyr:lead-lag]{dplyr::lag()}}, determines what fills empty rows
 left by lagging (defaults to NA).}
 
-\item{columns}{A character string of variable names that will
-be populated (eventually) by the \code{terms} argument.}
+\item{columns}{A character string of the selected variable names. This field
+is a placeholder and will be populated once \code{\link[recipes:prep]{prep()}} is used.}
 
-\item{skip}{A logical. Should the step be skipped when the
-recipe is baked by \code{\link[=bake.recipe]{bake.recipe()}}? While all operations are baked
-when \code{\link[=prep.recipe]{prep.recipe()}} is run, some operations may not be able to be
-conducted on new data (e.g. processing the outcome variable(s)).
-Care should be taken when using \code{skip = TRUE} as it may affect
-the computations for subsequent operations}
+\item{skip}{A logical. Should the step be skipped when the recipe is baked by
+\code{\link[recipes:bake]{bake()}}? While all operations are baked when \code{\link[recipes:prep]{prep()}} is run, some
+operations may not be able to be conducted on new data (e.g. processing the
+outcome variable(s)). Care should be taken when using \code{skip = TRUE} as it
+may affect the computations for subsequent operations.}
 
 \item{id}{A character string that is unique to this step to identify it.}
 }

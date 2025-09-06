@@ -4,8 +4,13 @@
 \alias{resample_fft_parallel}
 \title{Resample an fft using varying numbers of sine tapers}
 \usage{
-resample_fft_parallel(fftz, tapers, verbose = TRUE, dbl = TRUE,
-  tapcap = 10000L)
+resample_fft_parallel(
+  fftz,
+  tapers,
+  verbose = TRUE,
+  dbl = TRUE,
+  tapcap = 10000L
+)
 }
 \arguments{
 \item{fftz}{complex; a matrix representing the dual-length \code{\link{fft}}; see also the \code{dbl} argument}

@@ -4,11 +4,21 @@
 \alias{step_distributed_lag}
 \title{Distributed lag response}
 \usage{
-step_distributed_lag(recipe, ..., role = "distributed_lag",
-  trained = FALSE, knots = 1, spline_fun = splines::ns,
-  n_subset = 1, n_shift = 0, prefix = "distributed_lag_",
-  default = NA, columns = NULL, skip = FALSE,
-  id = rand_id("distributed_lag"))
+step_distributed_lag(
+  recipe,
+  ...,
+  role = "distributed_lag",
+  trained = FALSE,
+  knots = 1,
+  spline_fun = splines::ns,
+  n_subset = 1,
+  n_shift = 0,
+  prefix = "distributed_lag_",
+  default = NA,
+  columns = NULL,
+  skip = FALSE,
+  id = rand_id("distributed_lag")
+)
 }
 \arguments{
 \item{recipe}{A recipe object. The step will be added to the sequence of
@@ -21,8 +31,8 @@ currently used.}
 
 \item{role}{Defaults to "distributed_lag"}
 
-\item{trained}{A logical to indicate if the quantities for preprocessing
-have been estimated.}
+\item{trained}{A logical to indicate if the quantities for preprocessing have
+been estimated.}
 
 \item{knots}{specific knots for the lagging process}
 
@@ -35,18 +45,17 @@ have been estimated.}
 \item{prefix}{A prefix for generated column names, default to 
 "distributed_lag_".}
 
-\item{default}{Passed to \code{dplyr::lag}, determines what fills empty rows
+\item{default}{Passed to \code{\link[dplyr:lead-lag]{dplyr::lag()}}, determines what fills empty rows
 left by lagging (defaults to NA).}
 
-\item{columns}{A character string of variable names that will
-be populated (eventually) by the \code{terms} argument.}
+\item{columns}{A character string of the selected variable names. This field
+is a placeholder and will be populated once \code{\link[recipes:prep]{prep()}} is used.}
 
-\item{skip}{A logical. Should the step be skipped when the
-recipe is baked by \code{\link[=bake.recipe]{bake.recipe()}}? While all operations are baked
-when \code{\link[=prep.recipe]{prep.recipe()}} is run, some operations may not be able to be
-conducted on new data (e.g. processing the outcome variable(s)).
-Care should be taken when using \code{skip = TRUE} as it may affect
-the computations for subsequent operations}
+\item{skip}{A logical. Should the step be skipped when the recipe is baked by
+\code{\link[recipes:bake]{bake()}}? While all operations are baked when \code{\link[recipes:prep]{prep()}} is run, some
+operations may not be able to be conducted on new data (e.g. processing the
+outcome variable(s)). Care should be taken when using \code{skip = TRUE} as it
+may affect the computations for subsequent operations.}
 
 \item{id}{A character string that is unique to this step to identify it.}
 }

@@ -4,8 +4,14 @@
 \alias{distributed_lag}
 \title{distributed_lag}
 \usage{
-distributed_lag(x, knots, spline_fun = ns, lag_name = "",
-  n_subset = 1, n_shift = 0)
+distributed_lag(
+  x,
+  knots,
+  spline_fun = ns,
+  lag_name = "",
+  n_subset = 1,
+  n_shift = 0
+)
 }
 \arguments{
 \item{x}{numeric vector to lag}

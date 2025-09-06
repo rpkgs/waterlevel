@@ -4,8 +4,7 @@
 \alias{find_gaps}
 \title{find_gaps}
 \usage{
-find_gaps(x, dep_var = "val", time_var = "datetime",
-  time_interval = 1)
+find_gaps(x, dep_var = "val", time_var = "datetime", time_interval = 1)
 }
 \arguments{
 \item{x}{the data set (data.table)}

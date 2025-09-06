@@ -53,7 +53,7 @@
 #' @seealso [recipe()] [step_lag()] [prep.recipe()] [bake.recipe()]
 #'          [step_naomit()]
 #'          
-#' @importFrom recipes add_step step terms_select ellipse_check rand_id
+#' @importFrom recipes add_step step recipes_eval_select ellipse_check rand_id
 step_lag_matrix <-
   function(recipe,
            ...,
@@ -116,7 +116,7 @@ prep.step_lag_matrix <- function(x, training, info = NULL, ...) {
     n_shift = x$n_shift,
     default = x$default,
     prefix = x$prefix,
-    columns = terms_select(x$terms, info = info),
+    columns = recipes_eval_select(x$terms, info = info),
     skip = x$skip,
     id = x$id
   )

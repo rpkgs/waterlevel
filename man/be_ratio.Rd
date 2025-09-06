@@ -4,8 +4,16 @@
 \alias{be_ratio}
 \title{be_ratio}
 \usage{
-be_ratio(dat, dep = "wl", ind = "baro", lag_space = 1,
-  inverse = TRUE, quant = 0.9, stat = mean, ...)
+be_ratio(
+  dat,
+  dep = "wl",
+  ind = "baro",
+  lag_space = 1,
+  inverse = TRUE,
+  quant = 0.9,
+  stat = mean,
+  ...
+)
 }
 \arguments{
 \item{dat}{data that has the independent and dependent variables (data.table)}

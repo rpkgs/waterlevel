@@ -4,8 +4,7 @@
 \alias{be_acworth_eq_4}
 \title{be_acworth_eq_4}
 \usage{
-be_acworth_eq_4(s2_gw, s2_et, s2_at, m2_gw, m2_et, d_phase,
-  inverse = TRUE)
+be_acworth_eq_4(s2_gw, s2_et, s2_at, m2_gw, m2_et, d_phase, inverse = TRUE)
 }
 \arguments{
 \item{s2_gw}{\code{numeric} s2 component in the groundwater levels}

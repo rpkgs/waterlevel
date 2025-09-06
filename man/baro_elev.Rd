@@ -4,8 +4,12 @@
 \alias{baro_elev}
 \title{baro_elev}
 \usage{
-baro_elev(elevation = 0, pressure_sea = 101325, temperature = 20,
-  gravity = 9.80665)
+baro_elev(
+  elevation = 0,
+  pressure_sea = 101325,
+  temperature = 20,
+  gravity = 9.80665
+)
 }
 \arguments{
 \item{elevation}{vector elevations (numeric)}

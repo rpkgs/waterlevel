@@ -33,7 +33,7 @@
 #'
 #' @seealso [step_earthtide()] [recipe()]
 #'   [prep.recipe()] [bake.recipe()]
-#' @importFrom recipes add_step step terms_select ellipse_check rand_id
+#' @importFrom recipes add_step step recipes_eval_select ellipse_check rand_id
 step_harmonic <-
   function(recipe,
            ...,
@@ -87,7 +87,7 @@ prep.step_harmonic <- function(x, training, info = NULL, ...) {
     freq = x$freq,
     default = x$default,
     prefix = x$prefix,
-    columns = terms_select(x$terms, info = info),
+    columns = recipes_eval_select(x$terms, info = info),
     skip = x$skip,
     id = x$id
   )

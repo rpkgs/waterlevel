@@ -4,8 +4,13 @@
 \alias{be_visual_data}
 \title{be_visual_data}
 \usage{
-be_visual_data(dat, dep = "wl", ind = "baro", be_tests = seq(0, 1,
-  0.1), inverse = TRUE)
+be_visual_data(
+  dat,
+  dep = "wl",
+  ind = "baro",
+  be_tests = seq(0, 1, 0.1),
+  inverse = TRUE
+)
 }
 \arguments{
 \item{dat}{data that has the independent and dependent variables (data.table)}

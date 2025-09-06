@@ -4,8 +4,7 @@
 \alias{spec_welch_tf_error}
 \title{spec_welch_tf_error}
 \usage{
-spec_welch_tf_error(coh, amp, overlap = 0.5, n_subsets = 10,
-  return = "amp")
+spec_welch_tf_error(coh, amp, overlap = 0.5, n_subsets = 10, return = "amp")
 }
 \arguments{
 \item{coh}{coherency}

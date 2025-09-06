@@ -4,8 +4,15 @@
 \alias{synthetic_wl}
 \title{synthetic_wl}
 \usage{
-synthetic_wl(baro, datetime, sd_noise = 0, linear_trend = 0,
-  intercept = 0, seed = NULL, kernel = NULL)
+synthetic_wl(
+  baro,
+  datetime,
+  sd_noise = 0,
+  linear_trend = 0,
+  intercept = 0,
+  seed = NULL,
+  kernel = NULL
+)
 }
 \arguments{
 \item{baro}{barometric pressure (numeric vector)}

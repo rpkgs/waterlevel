@@ -4,8 +4,7 @@
 \alias{be_rahi}
 \title{be_rahi ## need to check for correctness}
 \usage{
-be_rahi(dat, dep = "wl", ind = "baro", lag_space = 1,
-  inverse = TRUE)
+be_rahi(dat, dep = "wl", ind = "baro", lag_space = 1, inverse = TRUE)
 }
 \arguments{
 \item{dat}{data that has the independent and dependent variables (data.table)}

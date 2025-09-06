@@ -4,10 +4,20 @@
 \alias{step_lag_matrix}
 \title{Create a lagged (or lead) predictor}
 \usage{
-step_lag_matrix(recipe, ..., role = "lag_matrix", trained = FALSE,
-  lag = 1, n_subset = 1, n_shift = 0, prefix = "lag_matrix_",
-  default = NA, columns = NULL, skip = FALSE,
-  id = rand_id("lag_matrix"))
+step_lag_matrix(
+  recipe,
+  ...,
+  role = "lag_matrix",
+  trained = FALSE,
+  lag = 1,
+  n_subset = 1,
+  n_shift = 0,
+  prefix = "lag_matrix_",
+  default = NA,
+  columns = NULL,
+  skip = FALSE,
+  id = rand_id("lag_matrix")
+)
 }
 \arguments{
 \item{recipe}{A recipe object. The step will be added to the sequence of
@@ -30,7 +40,7 @@ Each specified column will be lagged for each value in the vector.}
 
 \item{prefix}{A prefix for generated column names, default to "lag_".}
 
-\item{default}{Passed to \code{dplyr::lag}, determines what fills empty rows
+\item{default}{Passed to \code{\link[dplyr:lead-lag]{dplyr::lag()}}, determines what fills empty rows
 left by lagging (defaults to NA).}
 
 \item{columns}{A character string of variable names that will

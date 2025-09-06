@@ -4,13 +4,15 @@
 \name{wipp30}
 \alias{wipp30}
 \title{wipp30}
-\format{A \code{data.frame} The columns are:
+\format{
+A \code{data.frame} The columns are:
 \describe{
  \item{\code{time}}{time in hours}
  \item{\code{wl}}{transducer pressure of water column}
  \item{\code{baro}}{barometric pressure}
  \item{\code{et}}{synthetic gravity}
-}}
+}
+}
 \usage{
 wipp30
 }

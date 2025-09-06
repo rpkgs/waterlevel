@@ -4,8 +4,14 @@
 \alias{frf_predict_terms}
 \title{frf_predict_terms}
 \usage{
-frf_predict_terms(frf, x, time_col = "datetime", vars = c("wl",
-  "baro"), coherency_cut = 0.3, limit = 2)
+frf_predict_terms(
+  frf,
+  x,
+  time_col = "datetime",
+  vars = c("wl", "baro"),
+  coherency_cut = 0.3,
+  limit = 2
+)
 }
 \arguments{
 \item{frf}{frequency response function}

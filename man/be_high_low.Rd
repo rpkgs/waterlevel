@@ -4,8 +4,13 @@
 \alias{be_high_low}
 \title{be_high_low}
 \usage{
-be_high_low(dat, dep = "wl", ind = "baro", time = "datetime",
-  time_group = "\%Y-\%m-\%d")
+be_high_low(
+  dat,
+  dep = "wl",
+  ind = "baro",
+  time = "datetime",
+  time_group = "\%Y-\%m-\%d"
+)
 }
 \arguments{
 \item{dat}{data that has the independent and dependent variables (data.table)}

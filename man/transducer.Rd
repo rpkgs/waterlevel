@@ -4,13 +4,15 @@
 \name{transducer}
 \alias{transducer}
 \title{transducer}
-\format{A \code{data.frame} The columns are:
+\format{
+A \code{data.frame} The columns are:
 \describe{
  \item{\code{datetime}}{POSIXct date and time}
  \item{\code{wl}}{transducer pressure of water column(dbar)}
  \item{\code{baro}}{barometric pressure (dbar)}
  \item{\code{et}}{synthetic gravity}
-}}
+}
+}
 \usage{
 transducer
 }

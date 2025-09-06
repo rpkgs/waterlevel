@@ -4,8 +4,7 @@
 \alias{find_level_shift}
 \title{find_level_shift}
 \usage{
-find_level_shift(x, dep_var = "val", time_var = "datetime",
-  time_interval = 1)
+find_level_shift(x, dep_var = "val", time_var = "datetime", time_interval = 1)
 }
 \arguments{
 \item{x}{the data set (data.table)}

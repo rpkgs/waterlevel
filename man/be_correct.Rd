@@ -4,8 +4,14 @@
 \alias{be_correct}
 \title{be_correct}
 \usage{
-be_correct(dat, dep = "wl", ind = "baro", be = 0, inverse = TRUE,
-  known_mean = NULL)
+be_correct(
+  dat,
+  dep = "wl",
+  ind = "baro",
+  be = 0,
+  inverse = TRUE,
+  known_mean = NULL
+)
 }
 \arguments{
 \item{dat}{data that has the independent and dependent variables (data.table)}

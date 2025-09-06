@@ -11,9 +11,8 @@ portion(object, ...)
 with the option `retain = TRUE`.}
 
 \item{...}{One or more selector functions to choose which variables will be
-returned by the function. See \code{\link[=selections]{selections()}} for more details.
-If no selectors are given, the default is to use
-\code{\link[=everything]{everything()}}.}
+returned by the function. See \code{\link[recipes:selections]{selections()}} for more details. If no
+selectors are given, the default is to use \code{\link[dplyr:reexports]{dplyr::everything()}}.}
 }
 \description{
 As steps are estimated by `prep`, these operations are

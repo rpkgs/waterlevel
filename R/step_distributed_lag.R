@@ -36,7 +36,7 @@
 #'
 #' @seealso [step_lag_matrix()] [recipe()]
 #'   [prep.recipe()] [bake.recipe()]
-#' @importFrom recipes add_step step terms_select ellipse_check rand_id
+#' @importFrom recipes add_step step recipes_eval_select ellipse_check rand_id
 step_distributed_lag <-
   function(recipe,
            ...,
@@ -102,7 +102,7 @@ prep.step_distributed_lag <- function(x, training, info = NULL, ...) {
     n_shift = x$n_shift,
     default = x$default,
     prefix = x$prefix,
-    columns = terms_select(x$terms, info = info),
+    columns = recipes_eval_select(x$terms, info = info),
     skip = x$skip,
     id = x$id
   )

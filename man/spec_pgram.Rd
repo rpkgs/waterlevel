@@ -4,9 +4,19 @@
 \alias{spec_pgram}
 \title{spec_pgram}
 \usage{
-spec_pgram(x, spans = NULL, kernel = NULL, taper = 0.1, pad = 0,
-  fast = TRUE, demean = FALSE, detrend = TRUE, plot = TRUE,
-  na.action = na.fail, ...)
+spec_pgram(
+  x,
+  spans = NULL,
+  kernel = NULL,
+  taper = 0.1,
+  pad = 0,
+  fast = TRUE,
+  demean = FALSE,
+  detrend = TRUE,
+  plot = TRUE,
+  na.action = na.fail,
+  ...
+)
 }
 \arguments{
 \item{x}{univariate or multivariate time series.}

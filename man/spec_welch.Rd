@@ -4,8 +4,15 @@
 \alias{spec_welch}
 \title{spec_welch}
 \usage{
-spec_welch(x, n_subsets = 10, overlap = 0.5, window = window_hann,
-  demean = TRUE, detrend = TRUE, ...)
+spec_welch(
+  x,
+  n_subsets = 10,
+  overlap = 0.5,
+  window = window_hann,
+  demean = TRUE,
+  detrend = TRUE,
+  ...
+)
 }
 \arguments{
 \item{x}{\code{numeric matrix} univariate or multivariate time series}

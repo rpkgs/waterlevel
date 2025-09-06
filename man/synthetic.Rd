@@ -4,9 +4,15 @@
 \alias{synthetic}
 \title{synthetic}
 \usage{
-synthetic(sd_noise = 2e-04, sd_noise_trend = 3e-05,
-  linear_trend = 1e-07, n = 14 * 86400, seed = NULL, scale = 0.5,
-  baro_kernel = NULL)
+synthetic(
+  sd_noise = 2e-04,
+  sd_noise_trend = 3e-05,
+  linear_trend = 1e-07,
+  n = 14 * 86400,
+  seed = NULL,
+  scale = 0.5,
+  baro_kernel = NULL
+)
 }
 \arguments{
 \item{sd_noise}{standard deviation of random noise to add (numeric)}
