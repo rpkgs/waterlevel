@@ -87,7 +87,7 @@ prep.step_harmonic <- function(x, training, info = NULL, ...) {
     freq = x$freq,
     default = x$default,
     prefix = x$prefix,
-    columns = recipes_eval_select(x$terms, info = info),
+    columns = recipes_eval_select(x$terms, data = training, info = info),
     skip = x$skip,
     id = x$id
   )

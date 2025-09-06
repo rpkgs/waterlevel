@@ -150,7 +150,7 @@ prep.step_earthtide <- function(x, training, info = NULL, ...) {
     scale = x$scale,
     default = x$default,
     prefix = x$prefix,
-    columns = recipes_eval_select(x$terms, info = info),
+    columns = recipes_eval_select(x$terms, data = training, info = info),
     skip = x$skip,
     id = x$id
   )

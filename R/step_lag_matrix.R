@@ -116,7 +116,7 @@ prep.step_lag_matrix <- function(x, training, info = NULL, ...) {
     n_shift = x$n_shift,
     default = x$default,
     prefix = x$prefix,
-    columns = recipes_eval_select(x$terms, info = info),
+    columns = recipes_eval_select(x$terms, data = training, info = info),
     skip = x$skip,
     id = x$id
   )
