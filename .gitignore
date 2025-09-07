@@ -10,3 +10,5 @@ src/*.dll
 ^\.Rproj\.user$
 ^\.Rproj\.user$
 waterlevel\.Rproj
+
+examples

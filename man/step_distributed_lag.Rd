@@ -42,7 +42,7 @@ been estimated.}
 
 \item{n_shift}{for distributed_lag parallel}
 
-\item{prefix}{A prefix for generated column names, default to 
+\item{prefix}{A prefix for generated column names, default to
 "distributed_lag_".}
 
 \item{default}{Passed to \code{\link[dplyr:lead-lag]{dplyr::lag()}}, determines what fills empty rows
@@ -67,7 +67,7 @@ An updated version of `recipe` with the new step
 }
 \description{
 `step_distributed_lag` creates a *specification* of a recipe step
- that are distributed lag versions of a particular variable. Uses FFT for 
+ that are distributed lag versions of a particular variable. Uses FFT for
  fast calculation with a large maximum lag and many observations
 }
 \details{
@@ -78,11 +78,12 @@ An updated version of `recipe` with the new step
 data(transducer)
 
 rec <- recipe(wl ~ .,
-              data = transducer[1:1000, list(datetime, wl, baro)])
+  data = transducer[1:1000, list(datetime, wl, baro)]
+)
 
 with_et <- rec \%>\%
   step_distributed_lag(baro, knots = c(0, 10, 100)) \%>\%
-  step_naomit(everything()) \%>\% 
+  step_naomit(everything()) \%>\%
   prep() \%>\%
   juice()
 

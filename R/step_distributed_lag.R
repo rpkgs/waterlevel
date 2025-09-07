@@ -1,7 +1,7 @@
 #' Distributed lag response
 #'
 #' `step_distributed_lag` creates a *specification* of a recipe step
-#'  that are distributed lag versions of a particular variable. Uses FFT for 
+#'  that are distributed lag versions of a particular variable. Uses FFT for
 #'  fast calculation with a large maximum lag and many observations
 #'
 #' @inheritParams recipes::step_lag
@@ -11,7 +11,7 @@
 #'  for more details. For the `tidy` method, these are not
 #'  currently used.
 #' @param role Defaults to "distributed_lag"
-#' @param prefix A prefix for generated column names, default to 
+#' @param prefix A prefix for generated column names, default to
 #'  "distributed_lag_".
 #' @return An updated version of `recipe` with the new step
 #'  added to the sequence of existing steps (if any). For the
@@ -26,55 +26,35 @@
 #' data(transducer)
 #'
 #' rec <- recipe(wl ~ .,
-#'               data = transducer[1:1000, list(datetime, wl, baro)])
+#'   data = transducer[1:1000, list(datetime, wl, baro)]
+#' )
 #'
 #' with_et <- rec %>%
 #'   step_distributed_lag(baro, knots = c(0, 10, 100)) %>%
-#'   step_naomit(everything()) %>% 
+#'   step_naomit(everything()) %>%
 #'   prep() %>%
 #'   juice()
 #'
 #' @seealso [step_lag_matrix()] [recipe()]
 #'   [prep.recipe()] [bake.recipe()]
 #' @importFrom recipes add_step step recipes_eval_select ellipse_check rand_id
-step_distributed_lag <-
-  function(recipe,
-           ...,
-           role = "distributed_lag",
-           trained = FALSE,
-           knots = 1,
-           spline_fun = splines::ns,
-           n_subset = 1,
-           n_shift = 0,
-           prefix = "distributed_lag_",
-           default = NA,
-           columns = NULL,
-           skip = FALSE,
-           id = rand_id("distributed_lag")) {
-    add_step(
-      recipe,
-      step_distributed_lag_new(
-        terms = ellipse_check(...),
-        role = role,
-        trained = trained,
-        knots = knots,
-        spline_fun = spline_fun,
-        n_subset = n_subset,
-        n_shift = n_shift,
-        default = default,
-        prefix = prefix,
-        columns = columns,
-        skip = skip,
-        id = id
-      )
-    )
-  }
-
-step_distributed_lag_new <-
-  function(terms, role, trained, knots, spline_fun, n_subset, n_shift, default, prefix, columns, skip, id) {
-    step(
-      subclass = "distributed_lag",
-      terms = terms,
+step_distributed_lag <- function(recipe,
+                                 ...,
+                                 role = "distributed_lag",
+                                 trained = FALSE,
+                                 knots = 1,
+                                 spline_fun = splines::ns,
+                                 n_subset = 1,
+                                 n_shift = 0,
+                                 prefix = "distributed_lag_",
+                                 default = NA,
+                                 columns = NULL,
+                                 skip = FALSE,
+                                 id = rand_id("distributed_lag")) {
+  add_step(
+    recipe,
+    step_distributed_lag_new(
+      terms = ellipse_check(...),
       role = role,
       trained = trained,
       knots = knots,
@@ -87,11 +67,29 @@ step_distributed_lag_new <-
       skip = skip,
       id = id
     )
-  }
+  )
+}
+
+step_distributed_lag_new <- function(terms, role, trained, knots, spline_fun, n_subset, n_shift, default, prefix, columns, skip, id) {
+  step(
+    subclass = "distributed_lag",
+    terms = terms,
+    role = role,
+    trained = trained,
+    knots = knots,
+    spline_fun = spline_fun,
+    n_subset = n_subset,
+    n_shift = n_shift,
+    default = default,
+    prefix = prefix,
+    columns = columns,
+    skip = skip,
+    id = id
+  )
+}
 
 #' @export
 prep.step_distributed_lag <- function(x, training, info = NULL, ...) {
-  
   step_distributed_lag_new(
     terms = x$terms,
     role = x$role,
@@ -106,7 +104,6 @@ prep.step_distributed_lag <- function(x, training, info = NULL, ...) {
     skip = x$skip,
     id = x$id
   )
-  
 }
 
 #' @importFrom dplyr bind_cols
@@ -114,24 +111,24 @@ prep.step_distributed_lag <- function(x, training, info = NULL, ...) {
 #' @importFrom recipes bake prep
 #' @export
 bake.step_distributed_lag <- function(object, new_data, ...) {
-  
-  
-  
-  bind_cols(new_data[seq(object$n_shift+1, nrow(new_data), by = object$n_subset),],
-            as_tibble(distributed_lag(new_data[[object$columns]],
-                                      object$knots,
-                                      object$spline_fun,
-                                      object$columns,
-                                      object$n_subset,
-                                      object$n_shift)))
-
+  bind_cols(
+    new_data[seq(object$n_shift + 1, nrow(new_data), by = object$n_subset), ],
+    as_tibble(distributed_lag(
+      new_data[[object$columns]],
+      object$knots,
+      object$spline_fun,
+      object$columns,
+      object$n_subset,
+      object$n_shift
+    ))
+  )
 }
 
 
 #' @importFrom recipes printer
 print.step_distributed_lag <-
   function(x, width = max(20, options()$width - 30), ...) {
-    cat("distributed_lag ",  sep = "")
+    cat("distributed_lag ", sep = "")
     printer(x$columns, x$terms, x$trained, width = width)
     invisible(x)
   }

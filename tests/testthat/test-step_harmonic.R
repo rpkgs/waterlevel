@@ -1,4 +1,4 @@
-test_that("step_harmonic works", {
+test_that("step_harmonic2 works", {
 
   library(recipes)
   library(earthtide)
@@ -7,7 +7,7 @@ test_that("step_harmonic works", {
   freqs <- c(1,2,3)
   # lags numeric data
   baked <- recipe(~ ., data = df) %>%
-    step_harmonic(t, freq = freqs) %>%
+    step_harmonic2(t, freq = freqs) %>%
     prep() %>%
     portion()
   

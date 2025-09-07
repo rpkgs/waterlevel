@@ -276,7 +276,7 @@ step_earthtide(datetime,
                astro_update = 60)
 
 # Method 3 with top 6 diurnal and semi-diurnal signals O1, K1, P1, N2, M2, S2
-step_harmonic(datetime,
+step_harmonic2(datetime,
               freq = c(0.9295357, 0.9972621, 1.0027379, 
                        1.8959820, 1.9322736, 2.0000000)) 
 

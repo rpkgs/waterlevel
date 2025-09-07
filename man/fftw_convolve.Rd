@@ -27,13 +27,15 @@ For long data series this function will be much faster than non-fft methods.
 library(splines)
 
 knots <- round(10^seq(0.5, 4.635484, length.out = 9))
-n_lags <- 86400*2
+n_lags <- 86400 * 2
 
-bla <- ns(0:(n_lags), knots = knots,
-          Boundary.knots = c(0, n_lags))
-bv <- rnorm(86400*2 + 3600*24*4)
+bla <- ns(0:(n_lags),
+  knots = knots,
+  Boundary.knots = c(0, n_lags)
+)
+bv <- rnorm(86400 * 2 + 3600 * 24 * 4)
 system.time({
-dl <- fftw_convolve(bv, bla, normalize = FALSE)
+  dl <- fftw_convolve(bv, bla, normalize = FALSE)
 })
 
 }

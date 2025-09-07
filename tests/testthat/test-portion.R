@@ -6,11 +6,11 @@ test_that("portion works", {
   
   # lags numeric data
   expect_error({recipe(~ ., data = df) %>%
-    step_harmonic(t, freq = freqs) %>%
+    step_harmonic2(t, freq = freqs) %>%
     portion()})
   
   expect_error({recipe(~ ., data = df) %>%
-      step_harmonic(t, freq = freqs) %>%
+      step_harmonic2(t, freq = freqs) %>%
       prep(retain = FALSE) %>%
       portion()})
   

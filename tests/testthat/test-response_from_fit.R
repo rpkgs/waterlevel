@@ -113,7 +113,7 @@ test_that("response_from_fit works", {
   knots <- log_lags(15, max_lag_baro)
   dat_h <- recipe(wl~., transducer) %>%                          
     step_distributed_lag(baro, knots = knots) %>%   
-    step_harmonic(datetime,freq = 1.9322736) %>%      
+    step_harmonic2(datetime,freq = 1.9322736) %>%      
     step_mutate(datetime_num = as.numeric(datetime)) %>%           
     step_ns(datetime_num, deg_free = ns_df, role = 'splines') %>%                        
     prep() %>%                                                 

@@ -1,6 +1,6 @@
 #' Generate harmonics
 #'
-#' `step_harmonic` creates a *specification* of a recipe step
+#' `step_harmonic2` creates a *specification* of a recipe step
 #'  for harmonics (sin and cos terms).
 #'
 #' @inheritParams recipes::step_lag
@@ -19,7 +19,7 @@
 #' @keywords datagen
 #' @concept generate harmonics of frequency in cycles per day
 #' @export
-#' @details `step_harmonic` calculates the Earth tide harmonics
+#' @details `step_harmonic2` calculates the Earth tide harmonics
 #' @examples
 #' data(transducer)
 #' 
@@ -27,14 +27,14 @@
 #'               data = transducer[1:1000, list(datetime, wl)])
 #'
 #' with_et <- rec %>%
-#'   step_harmonic(datetime, freq = c(1, 1.93, 2)) %>% 
+#'   step_harmonic2(datetime, freq = c(1, 1.93, 2)) %>% 
 #'   prep() %>%
 #'   juice()
 #'
 #' @seealso [step_earthtide()] [recipe()]
 #'   [prep.recipe()] [bake.recipe()]
 #' @importFrom recipes add_step step recipes_eval_select ellipse_check rand_id
-step_harmonic <-
+step_harmonic2 <-
   function(recipe,
            ...,
            role = "harmonic",
@@ -64,7 +64,7 @@ step_harmonic <-
 step_harmonic_new <-
   function(terms, role, trained, freq, default, prefix, columns, skip, id) {
     step(
-      subclass = "harmonic",
+      subclass = "harmonic2",
       terms = terms,
       role = role,
       trained = trained,
@@ -78,7 +78,7 @@ step_harmonic_new <-
   }
 
 #' @export
-prep.step_harmonic <- function(x, training, info = NULL, ...) {
+prep.step_harmonic2 <- function(x, training, info = NULL, ...) {
   
   step_harmonic_new(
     terms = x$terms,
@@ -98,7 +98,7 @@ prep.step_harmonic <- function(x, training, info = NULL, ...) {
 #' @importFrom recipes bake prep
 #' 
 #' @export
-bake.step_harmonic <- function(object, new_data, ...) {
+bake.step_harmonic2 <- function(object, new_data, ...) {
   
 
   # if (!all(object$lag == as.integer(object$lag)))

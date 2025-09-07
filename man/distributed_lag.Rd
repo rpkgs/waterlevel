@@ -30,7 +30,7 @@ distributed_lag(
 matrix with distributed lag terms
 }
 \description{
-Depending on the vector to lag and the maximum knot, distributed_lag will 
-either use an FFT (no NA and large maximum knot), or a parallel method 
+Depending on the vector to lag and the maximum knot, distributed_lag will
+either use an FFT (no NA and large maximum knot), or a parallel method
 (NA, or small maximum knot).
 }
