@@ -449,19 +449,18 @@ get_intercept_stats <- function(x) {
 #' @export
 #'
 add_level_shifts <- function(x, y) {
-  
   out <- rep(0.0, length(x))
-  
+
   for(i in 1:nrow(y)) {
     wh <- which(x > y$midpoint[i])
+    # (length(wh) == 0) && next()
+
     mn <- as.numeric(y[i, list(min, max, mean)])
     mn <- mn[which.min(abs(mn))]
-    out[wh] <- out[wh] + mn
+
+    out[wh] <- out[wh] + mn # bug here
   }
-  
-  
   return(out)
-  
 }
 
 
